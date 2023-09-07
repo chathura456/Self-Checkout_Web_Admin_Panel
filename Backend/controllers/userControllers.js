@@ -34,7 +34,6 @@ const adminLogin = async (req, res) => {
 };
 
 // User Registration
-// User Registration
 const registerUser = async (req, res) => {
     try {
         const { username, userPassword, email, userType } = req.body;

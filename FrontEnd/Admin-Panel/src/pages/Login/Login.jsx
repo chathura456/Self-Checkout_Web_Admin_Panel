@@ -47,12 +47,12 @@ function App() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleButtonClick = () => {
+  /* const handleButtonClick = () => {
     setLoading(true);
     setTimeout(() => {
       navigate("/dashboard");
     }, 2000); // 2 seconds delay
-  };
+  };*/
   /* const handleButtonClick = () => {
     if (email === "admin@gmail.com" && password === "admin") {
         setLoading(true);
@@ -64,6 +64,37 @@ function App() {
     }
 };
 */
+  const handleButtonClick = () => {
+    // Create the request body
+    const requestBody = {
+      email: email,
+      password: password,
+    };
+
+    // Make the HTTP POST request
+    fetch("http://localhost:5000/users/admin", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(requestBody),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.message === "Admin logged in successfully") {
+          setLoading(true);
+          setTimeout(() => {
+            navigate("/dashboard");
+          }, 2000); // 2 seconds delay
+        } else {
+          setError(data.message);
+        }
+      })
+      .catch((error) => {
+        setError("Server error");
+      });
+  };
+
   return (
     <MDBContainer
       fluid
@@ -121,7 +152,7 @@ function App() {
               Login
             </h2>
             <MDBInput
-              wrapperClass="mb-4"
+              wrapperClass={`mb-4 ${email ? "has-text" : ""}`}
               label="Email address"
               id="formControlLg"
               type="email"

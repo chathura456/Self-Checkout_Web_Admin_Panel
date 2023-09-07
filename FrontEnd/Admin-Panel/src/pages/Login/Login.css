@@ -5,3 +5,8 @@
   height: 1px;
   background: #eee;
 }
+
+/* Style when input has text */
+.has-text input {
+  background-color: #e0e0e0; /* light gray background */
+}

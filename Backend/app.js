@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const cors = require('cors'); // <-- Import cors here
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -21,8 +22,9 @@ db.once('open', function() {
   console.log('Connected to MongoDB');
 });
 
-
 var app = express();
+
+app.use(cors()); // <-- Use cors middleware here
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
