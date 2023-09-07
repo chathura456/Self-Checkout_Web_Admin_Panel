@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 
 function Order() {
   return (
-    <div>
-      <h1>Add Product</h1>
+    <div className="main-content">
+      <h1>Orders</h1>
     </div>
   );
 }

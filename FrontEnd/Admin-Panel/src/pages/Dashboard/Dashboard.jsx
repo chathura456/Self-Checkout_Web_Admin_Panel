@@ -1,10 +1,9 @@
 import React from "react";
-import SidePanel from "../../Components/SidePanel/SidePanel";
+import "./Dashboard.css";
 
 function Dashboard() {
   return (
-    <div>
-      <SidePanel />
+    <div className="main-content">
       <h1>Dashboard</h1>
     </div>
   );

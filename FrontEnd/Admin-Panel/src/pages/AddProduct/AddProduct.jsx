@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 
 function AddProduct() {
   return (
-    <div>
+    <div className="main-content">
       <h1>Add Product</h1>
     </div>
   );

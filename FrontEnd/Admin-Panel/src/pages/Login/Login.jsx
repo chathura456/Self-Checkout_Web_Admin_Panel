@@ -47,23 +47,14 @@ function App() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  /* const handleButtonClick = () => {
+  const handleButtonClick = () => {
     setLoading(true);
     setTimeout(() => {
       navigate("/dashboard");
     }, 2000); // 2 seconds delay
-  };*/
-  /* const handleButtonClick = () => {
-    if (email === "admin@gmail.com" && password === "admin") {
-        setLoading(true);
-        setTimeout(() => {
-            navigate('/dashboard');
-        }, 2000); // 2 seconds delay
-    } else {
-        setError("Invalid email or password");
-    }
-};
-*/
+  };
+
+  /*
   const handleButtonClick = () => {
     // Create the request body
     const requestBody = {
@@ -93,7 +84,7 @@ function App() {
       .catch((error) => {
         setError("Server error");
       });
-  };
+  };*/
 
   return (
     <MDBContainer
@@ -106,6 +97,7 @@ function App() {
         opacity: 0.8,
         height: "100vh",
         width: "100vw",
+        marginLeft: "-250px",
       }}
     >
       <MDBRow

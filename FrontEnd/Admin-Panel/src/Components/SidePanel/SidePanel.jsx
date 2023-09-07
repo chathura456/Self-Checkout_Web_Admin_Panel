@@ -1,8 +1,10 @@
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { MDBBtn, MDBIcon } from "mdb-react-ui-kit";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
-import React from "react";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./SidePanel.css";
+
 /*
 const SidePanel = () => {
   return (
@@ -40,63 +42,143 @@ export default SidePanel;
 */
 
 const SidePanel = () => {
+  const [activeRoute, setActiveRoute] = useState(window.location.pathname);
+  const [isHovered, setIsHovered] = useState(false);
+  const [hoverStates, setHoverStates] = useState({});
+
   return (
     <div className="side-panel">
       <h1 className="website-name">Self Checkout</h1>
-      <hr />
+      <hr className="line" />
       <div className="buttons-section">
-        <MDBBtn
-          block
-          color="green"
-          className="p-3 mb-2 align-left custom-btn-color"
-          style={{ boxShadow: "none", border: "none" }}
-        >
-          <MDBIcon
-            fas
-            icon="tachometer-alt"
-            className="me-2"
-            style={{ boxShadow: "none", border: "none" }}
-          />
-          Dashboard
-        </MDBBtn>
-        <MDBBtn
-          block
-          color="green"
-          className="p-3 mb-2 align-left"
-          style={{ boxShadow: "none", border: "none" }}
-        >
-          <MDBIcon fas icon="box" className="me-2" />
-          Products
-        </MDBBtn>
-        <MDBBtn
-          block
-          color="green"
-          className="p-3 mb-2 align-left"
-          style={{ boxShadow: "none", border: "none" }}
-        >
-          <MDBIcon fas icon="shopping-cart" className="me-2" />
-          Orders
-        </MDBBtn>
-        <MDBBtn
-          block
-          color="green"
-          className="p-3 mb-2 align-left"
-          style={{ boxShadow: "none", border: "none" }}
-        >
-          <MDBIcon fas icon="users" className="me-2" />
-          Customers
-        </MDBBtn>
+        <NavLink to="/dashboard" activeClassName="selected-button">
+          <MDBBtn
+            block
+            color={activeRoute === "/dashboard" ? "white" : "green"}
+            className="p-3 mb-2 align-left custom-btn-color"
+            style={{
+              boxShadow: "none",
+              border: "none",
+              color:
+                activeRoute === "/dashboard"
+                  ? "#000"
+                  : hoverStates["/dashboard"]
+                  ? "#000"
+                  : "#fff",
+            }}
+            onClick={() => setActiveRoute("/dashboard")}
+            onMouseEnter={() =>
+              setHoverStates((prev) => ({ ...prev, "/dashboard": true }))
+            }
+            onMouseLeave={() =>
+              setHoverStates((prev) => ({ ...prev, "/dashboard": false }))
+            }
+          >
+            <MDBIcon
+              fas
+              icon="tachometer-alt"
+              className="me-2 ms-2"
+              style={{ boxShadow: "none", border: "none" }}
+            />
+            Dashboard
+          </MDBBtn>
+        </NavLink>
+        <NavLink to="/product" activeClassName="selected-button">
+          <MDBBtn
+            block
+            color={activeRoute === "/product" ? "white" : "green"}
+            className="p-3 mb-2 align-left custom-btn-color"
+            style={{
+              boxShadow: "none",
+              border: "none",
+              color:
+                activeRoute === "/product"
+                  ? "#000"
+                  : hoverStates["/product"]
+                  ? "#000"
+                  : "#fff",
+            }}
+            onClick={() => setActiveRoute("/product")}
+            onMouseEnter={() =>
+              setHoverStates((prev) => ({ ...prev, "/product": true }))
+            }
+            onMouseLeave={() =>
+              setHoverStates((prev) => ({ ...prev, "/product": false }))
+            }
+          >
+            <MDBIcon fas icon="box" className="me-2 ms-2" />
+            Products
+          </MDBBtn>
+        </NavLink>
+        <NavLink to="/order" activeClassName="selected-button">
+          <MDBBtn
+            block
+            color={activeRoute === "/order" ? "white" : "green"}
+            className="p-3 mb-2 align-left custom-btn-color"
+            style={{
+              boxShadow: "none",
+              border: "none",
+              color:
+                activeRoute === "/order"
+                  ? "#000"
+                  : hoverStates["/order"]
+                  ? "#000"
+                  : "#fff",
+            }}
+            onClick={() => setActiveRoute("/order")}
+            onMouseEnter={() =>
+              setHoverStates((prev) => ({ ...prev, "/order": true }))
+            }
+            onMouseLeave={() =>
+              setHoverStates((prev) => ({ ...prev, "/order": false }))
+            }
+          >
+            <MDBIcon fas icon="shopping-cart" className="me-2 ms-2" />
+            Orders
+          </MDBBtn>
+        </NavLink>
+        <NavLink to="/customer" activeClassName="selected-button">
+          <MDBBtn
+            block
+            color={activeRoute === "/customer" ? "white" : "green"}
+            className="p-3 mb-2 align-left custom-btn-color"
+            style={{
+              boxShadow: "none",
+              border: "none",
+              color:
+                activeRoute === "/customer"
+                  ? "#000"
+                  : hoverStates["/customer"]
+                  ? "#000"
+                  : "#fff",
+            }}
+            onClick={() => setActiveRoute("/customer")}
+            onMouseEnter={() =>
+              setHoverStates((prev) => ({ ...prev, "/customer": true }))
+            }
+            onMouseLeave={() =>
+              setHoverStates((prev) => ({ ...prev, "/customer": false }))
+            }
+          >
+            <MDBIcon fas icon="users" className="me-2 ms-2" />
+            Customers
+          </MDBBtn>
+        </NavLink>
       </div>
-      <div className="logout-section">
-        <MDBBtn
-          block
-          color="green"
-          className="p-3 mb-6 align-left"
-          style={{ boxShadow: "none", border: "none" }}
-        >
-          <MDBIcon fas icon="sign-out-alt" className="me-2" />
-          Log Out
-        </MDBBtn>
+
+      <div className="logout-section" activeClassName="selected-button">
+        <hr className="line" />
+        <NavLink to="/">
+          <MDBBtn
+            block
+            color="green"
+            className="p-3 mb-4 align-left custom-btn-color"
+            style={{ boxShadow: "none", border: "none" }}
+          >
+            <MDBIcon fas icon="sign-out-alt" className="me-2 ms-2" />
+            Log Out
+          </MDBBtn>
+        </NavLink>
       </div>
     </div>
   );
