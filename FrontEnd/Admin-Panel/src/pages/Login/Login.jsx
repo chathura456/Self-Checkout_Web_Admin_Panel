@@ -54,8 +54,8 @@ function App() {
     }, 2000); // 2 seconds delay
   };
 
-  /*
-  const handleButtonClick = () => {
+  //to run admin panel with backend
+  /* const handleButtonClick = () => {
     // Create the request body
     const requestBody = {
       email: email,
@@ -97,7 +97,6 @@ function App() {
         opacity: 0.8,
         height: "100vh",
         width: "100vw",
-        marginLeft: "-250px",
       }}
     >
       <MDBRow
