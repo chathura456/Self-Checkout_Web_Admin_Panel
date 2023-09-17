@@ -47,15 +47,15 @@ function App() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleButtonClick = () => {
+  /*const handleButtonClick = () => {
     setLoading(true);
     setTimeout(() => {
       navigate("/dashboard");
     }, 2000); // 2 seconds delay
-  };
+  };*/
 
   //to run admin panel with backend
-  /* const handleButtonClick = () => {
+  const handleButtonClick = () => {
     // Create the request body
     const requestBody = {
       email: email,
@@ -84,7 +84,7 @@ function App() {
       .catch((error) => {
         setError("Server error");
       });
-  };*/
+  };
 
   return (
     <MDBContainer

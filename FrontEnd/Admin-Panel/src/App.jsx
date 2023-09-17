@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import SidePanel from "./Components/SidePanel/SidePanel";
 //import "./index.css";
-import "./custom.css";
+//import "./custom.css";
 import AddProduct from "./pages/AddProduct/AddProduct";
 import Customers from "./pages/Customers/Customers";
 import Dashboard from "./pages/Dashboard/Dashboard";
